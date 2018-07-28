@@ -1,5 +1,6 @@
 package com.udacity.gradle.builditbigger.backend;
 
+import com.amrhal.jokesjlib.Jokes;
 import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
 import com.google.api.server.spi.config.ApiNamespace;
@@ -17,12 +18,14 @@ import javax.inject.Named;
         )
 )
 public class MyEndpoint {
+   // https://github.com/GoogleCloudPlatform/gradle-appengine-templates/tree/77e9910911d5412e5efede5fa681ec105a0f02ad/HelloEndpoints#2-connecting-your-android-app-to-the-backend
 
     /** A simple endpoint method that takes a name and says Hi back */
-    @ApiMethod(name = "sayHi")
-    public MyBean sayHi(@Named("name") String name) {
+    @ApiMethod(name = "sayjokes")
+    public MyBean sayjokes() {
         MyBean response = new MyBean();
-        response.setData("Hi, " + name);
+        Jokes newJoke= new Jokes();
+        response.setData(newJoke.getRandomOne());
 
         return response;
     }
