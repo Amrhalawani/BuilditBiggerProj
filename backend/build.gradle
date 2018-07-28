@@ -20,7 +20,7 @@ apply plugin: 'war'
 apply plugin: 'com.google.cloud.tools.appengine'
 apply plugin: 'com.google.cloud.tools.endpoints-framework-server'
 // V2: Apply the new Endpoints Framework client plugin
-//apply plugin: 'com.google.cloud.tools.endpoints-framework-client'
+apply plugin: 'com.google.cloud.tools.endpoints-framework-client'
 sourceCompatibility = JavaVersion.VERSION_1_7
 targetCompatibility = JavaVersion.VERSION_1_7
 

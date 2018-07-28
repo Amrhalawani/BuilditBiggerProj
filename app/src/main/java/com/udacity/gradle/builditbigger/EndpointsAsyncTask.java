@@ -3,6 +3,7 @@ package com.udacity.gradle.builditbigger;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.util.Log;
 import android.util.Pair;
 import android.widget.Toast;
 
@@ -20,12 +21,12 @@ class EndpointsAsyncTask extends AsyncTask<Void, Void, String> {
 
 
     public EndpointsAsyncTask(Context context) {
-        this.context=context;
+        this.context = context;
     }
 
     @Override
     protected String doInBackground(Void... params) {
-        if(myApiService == null) {  // Only do this once
+        if (myApiService == null) {  // Only do this once
             MyApi.Builder builder = new MyApi.Builder(AndroidHttp.newCompatibleTransport(),
                     new AndroidJsonFactory(), null)
                     // options for running against local devappserver
@@ -52,5 +53,7 @@ class EndpointsAsyncTask extends AsyncTask<Void, Void, String> {
 
     @Override
     protected void onPostExecute(String result) {
-        Toast.makeText(context, "from GCE :"+result, Toast.LENGTH_LONG).show();
-    }}
+        Log.e("TAG", "onPostExecute: " + result);
+        Toast.makeText(context, "from GCE :" + result, Toast.LENGTH_LONG).show();
+    }
+}
