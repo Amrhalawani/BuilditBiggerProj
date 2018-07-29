@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class Jokes {
 
-
+    //any Jokes
     private String[] manyjokes = {"Q. Why is an island like the letter T?\n" +
             "\n" +
             "A. They're both in the middle of water!", "How do you know if someone has an iphone?\n" +
